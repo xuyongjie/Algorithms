@@ -24,7 +24,7 @@ namespace AlgorithmsImplementation
 
         private int HandleNextArray(string pattern,int[] next,int i)
         {
-
+            return 0;
         }
 
         public List<int> GetAllMatchesIndex(string text)
