@@ -46,6 +46,9 @@
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />
     <Compile Include="LeetCode\LeetCode2.cs" />
+    <Compile Include="LeetCode\LeetCode3.cs" />
+    <Compile Include="LeetCode\LeetCode4.cs" />
+    <Compile Include="LeetCode\LeetCode5.cs" />
     <Compile Include="LeetCode\LeetCode6.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
