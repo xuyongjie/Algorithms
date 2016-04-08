@@ -8,6 +8,7 @@ namespace AlgorithmsImplementation.LeetCode
 {
     class LeetCode5
     {
+        private bool[,] flag;
         public string LongestPalindrome(string s)
         {
 
@@ -15,54 +16,51 @@ namespace AlgorithmsImplementation.LeetCode
             {
                 return string.Empty;
             }
-            int max = 1;
-            int resultIndex = 0;
-            int former = 1;
-            int i, j,start,end;
-            for (i = 1; i < s.Length; i++)
+            flag = new bool[s.Length, s.Length];
+            int i, j,maxlength=1,maxStart=0;
+            for(i=0;i<s.Length;i++)
             {
+                flag[i,i] = true;
+            }
 
-                if (i-former-1>=0&&s[i] == s[i - former - 1])
+            for(i=0;i<s.Length-1;i++)
+            {
+                for(j=i+1;j<s.Length;j++)
                 {
-                    former = former+2;
-                }
-                else
-                {
-                    for(j=i-former;j<i;j++)
+                    if(s[i]==s[j])
                     {
-                        if(s[j]==s[i])
+                        if(j==i+1)
                         {
-                            start = j + 1;
-                            end = i - 1;
-                            while(start<end-1)
+                            flag[i, j] = true;
+                            if(j-i+1>maxlength)
                             {
-                                if(s[start]!=s[j])
-                                {
-                                    break;
-                                }
+                                maxlength = j - i + 1;
+                                maxStart = i;
                             }
-
-                            if(start>=end-1)
+                            continue;
+                        }
+                        if(flag[i+1,j-1])
+                        {
+                            flag[i, j] = true;
+                            if (j - i + 1 > maxlength)
                             {
-                                former = i - j+1;
-                                break;
+                                maxlength = j - i + 1;
+                                maxStart = i;
                             }
                         }
+                        else
+                        {
+                            flag[i, j] = false;
+                        }
                     }
-
-                    if(j==i)
+                    else
                     {
-                        former = 1;
+                        flag[i, j] = false;
                     }
-                }
-
-                if (former > max)
-                {
-                    max = former;
-                    resultIndex = i;
                 }
             }
-            return s.Substring(resultIndex - max+1, max);
+            
+            return s.Substring(maxStart, maxlength);
         }
     }
 }
