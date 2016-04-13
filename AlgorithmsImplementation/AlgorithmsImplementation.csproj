@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />
+    <Compile Include="LeetCode\LeetCode121.cs" />
     <Compile Include="LeetCode\LeetCode2.cs" />
     <Compile Include="LeetCode\LeetCode3.cs" />
+    <Compile Include="LeetCode\LeetCode309.cs" />
     <Compile Include="LeetCode\LeetCode4.cs" />
     <Compile Include="LeetCode\LeetCode5.cs" />
     <Compile Include="LeetCode\LeetCode6.cs" />
