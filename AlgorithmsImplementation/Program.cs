@@ -11,8 +11,13 @@ namespace AlgorithmsImplementation
     {
         static void Main(string[] args)
         {
-            LeetCode5 code = new LeetCode5();
-            Console.WriteLine(code.LongestPalindrome("abcdadcbte"));
+            KMP myKmp = new KMP("xuyongjie");
+            string text = "fgshgsxuyongjiedgfagxuyongfsgdsxuyongjiexuyongjiefdsgsdf";
+            var result = myKmp.GetAllMatchesIndex(text);
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadLine();
         }
     }

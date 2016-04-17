@@ -18,18 +18,48 @@ namespace AlgorithmsImplementation
 
         private int[] GetNextArray(string pattern)
         {
-            int[] next = new int[pattern.Length];
+            int length = pattern.Length;
+            int[] next = new int[length+1];
+            int k = 0;
+            next[1] = 0;
+            for(int i=2;i<=length;i++)
+            {
+                while(k>0&&pattern[k]!=pattern[i-1])
+                {
+                    k = next[k];
+                }
+                if(pattern[k]==pattern[i-1])
+                {
+                    k = k + 1;
+                }
+                next[i] = k;
+            }
             return next;
-        }
-
-        private int HandleNextArray(string pattern,int[] next,int i)
-        {
-            return 0;
         }
 
         public List<int> GetAllMatchesIndex(string text)
         {
-            return null;
+            List<int> resultIndexs = new List<int>();
+            int n = text.Length;
+            int m = this.Pattern.Length;
+            int q = 0;
+            for(int i=0;i<n;i++)
+            {
+                while(q>0&&Pattern[q]!=text[i])
+                {
+                    q = Next[q];
+                }
+                if(Pattern[q]==text[i])
+                {
+                    q = q + 1;
+                }
+                if(q==m)
+                {
+                    resultIndexs.Add(i-m+1);
+                    q = Next[q];
+                }
+            }
+            return resultIndexs;
         }
 
     }

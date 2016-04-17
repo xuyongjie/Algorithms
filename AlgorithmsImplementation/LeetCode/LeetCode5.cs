@@ -8,68 +8,61 @@ namespace AlgorithmsImplementation.LeetCode
 {
     class LeetCode5
     {
-        private int[,] flag;
         public string LongestPalindrome(string s)
         {
-
             if (string.IsNullOrEmpty(s))
             {
                 return string.Empty;
             }
-            flag = new int[s.Length, s.Length];
-            int i, j,maxlength=1,maxStart=0;
+            string after = HandleText(s,'#');
+            int i,maxlength=1,maxStart=0;
+            int currentLength = 1, currentStart = 0;
             for(i=0;i<s.Length;i++)
             {
-                for(j=0;j<s.Length;j++)
+                GetPalindromeLength(after, i,out currentStart,out currentLength);
+                if(currentLength>maxlength)
                 {
-                    if(i==j)
-                    {
-                        flag[i, j] = 1;
-                    }
-                    else
-                    {
-                        flag[i, j] = -1;
-                    }
+                    maxlength = currentLength;
+                    maxStart = currentStart;
                 }
             }
-
-            for(i=0;i<s.Length-1;i++)
-            {
-                for(j=i+1;j<s.Length;j++)
-                {
-                    flag[i,j]=IsPalindrome(s, i, j);
-                    if(flag[i,j]==1)
-                    {
-                        if(j - i + 1 > maxlength)
-                        {
-                            maxlength = j - i + 1;
-                            maxStart = i;
-                        }
-                    }
-                }
-            }
-            
             return s.Substring(maxStart, maxlength);
         }
 
-        private int IsPalindrome(string s,int i,int j)
+        private void GetPalindromeLength(string s,int i,out int start,out int l)
         {
-            if(flag[i,j]!=-1)
+            int left=i-1, right=i+1;
+            int length = 1;
+            while(left>=0&&right<s.Length)
             {
-                return flag[i, j];
-            }
-            if (s[i] == s[j])
-            {
-                if (j == i + 1)
+                if(s[left]==s[right])
                 {
-                    return 1;
+                    length += 2;
                 }
-                return IsPalindrome(s, i + 1, j - 1);
+                else
+                {
+                    break;
+                }
             }
-            else
+            start = left/2;
+            l = length/2;
+        }
+
+        /// <summary>
+        /// 在字符串s中插入字符c
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        private string HandleText(string s,char c)
+        {
+            StringBuilder builder = new StringBuilder();
+            for(int i=0;i<s.Length;i++)
             {
-                return 0;
+                builder.Append('#').Append(s[i]);
             }
+            builder.Append('#');
+            return builder.ToString();
         }
     }
 }
