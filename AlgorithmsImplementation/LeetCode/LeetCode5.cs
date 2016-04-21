@@ -8,44 +8,103 @@ namespace AlgorithmsImplementation.LeetCode
 {
     class LeetCode5
     {
+        //O(N^2)
         public string LongestPalindrome(string s)
         {
             if (string.IsNullOrEmpty(s))
             {
                 return string.Empty;
             }
-            string after = HandleText(s,'#');
-            int i,maxlength=1,maxStart=0;
-            int currentLength = 1, currentStart = 0;
-            for(i=0;i<s.Length;i++)
+            int length = s.Length;
+            int maxStart = 0, maxLength = 1;
+            bool[,] p = new bool[length, length];
+            for (int i = 0; i < length; i++)
             {
-                GetPalindromeLength(after, i,out currentStart,out currentLength);
-                if(currentLength>maxlength)
+                for (int j = i; j < length; j++)
                 {
-                    maxlength = currentLength;
-                    maxStart = currentStart;
+                    if (i == j)
+                    {
+                        p[i, j] = true;
+                    }
+                    else if (i == j - 1 && s[i] == s[j])
+                    {
+                        p[i, j] = true;
+                        maxStart = i;
+                        maxLength = 2;
+                    }
+                    else
+                    {
+                        p[i, j] = false;
+                    }
                 }
             }
-            return s.Substring(maxStart, maxlength);
+
+            for (int i = 3; i <= length; i++)
+            {
+                for (int j = 0; j <= length - i; j++)
+                {
+                    if (p[j + 1, j + i - 2] && s[j] == s[j + i - 1])
+                    {
+                        p[j, j + i - 1] = true;
+                        maxStart = j;
+                        maxLength = i;
+                    }
+                    else
+                    {
+                        p[j, j + i - 1] = false;
+                    }
+                }
+            }
+
+            return s.Substring(maxStart, maxLength);
         }
 
-        private void GetPalindromeLength(string s,int i,out int start,out int l)
+
+
+
+        //O(N)
+        public string LongestPalindrome2(string s)
         {
-            int left=i-1, right=i+1;
-            int length = 1;
-            while(left>=0&&right<s.Length)
+            if (string.IsNullOrEmpty(s))
             {
-                if(s[left]==s[right])
+                return string.Empty;
+            }
+            string afterHandle = HandleText(s, '#');
+            int length = afterHandle.Length;
+            int[] rad = new int[length];
+            int center = -1;
+            int right = -1;
+            for (int i = 0; i < length; i++)
+            {
+                int r = 1;
+                if (i <= right)
                 {
-                    length += 2;
+                    r = Math.Min(rad[2 * center - i], rad[center] - i + center);
+
                 }
-                else
+                while (i-r>=0&&i+r<length&&afterHandle[i-r] == afterHandle[i+r])
                 {
-                    break;
+                    r++;
+                }
+                rad[i] = r;
+                if(i+r-1>right)
+                {
+                    right = i + r-1;
+                    center = i;
                 }
             }
-            start = left/2;
-            l = length/2;
+            int maxIndex = 0, maxRad = 1;
+            for(int i=0;i<length;i++)
+            {
+                if(rad[i]>maxRad)
+                {
+                    maxRad = rad[i];
+                    maxIndex = i;
+                }
+            }
+            int resultMaxLength = maxRad - 1;
+            int resultStartIndex = (maxIndex - maxRad + 1) / 2;
+            return s.Substring(resultStartIndex, resultMaxLength);
         }
 
         /// <summary>
@@ -54,10 +113,10 @@ namespace AlgorithmsImplementation.LeetCode
         /// <param name="s"></param>
         /// <param name="c"></param>
         /// <returns></returns>
-        private string HandleText(string s,char c)
+        private string HandleText(string s, char c)
         {
             StringBuilder builder = new StringBuilder();
-            for(int i=0;i<s.Length;i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 builder.Append('#').Append(s[i]);
             }

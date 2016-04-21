@@ -11,13 +11,15 @@ namespace AlgorithmsImplementation
     {
         static void Main(string[] args)
         {
-            KMP myKmp = new KMP("xuyongjie");
-            string text = "fgshgsxuyongjiedgfagxuyongfsgdsxuyongjiexuyongjiefdsgsdf";
-            var result = myKmp.GetAllMatchesIndex(text);
-            foreach(var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //KMP myKmp = new KMP("xuyongjie");
+            //string text = "fgshgsxuyongjiedgfagxuyongfsgdsxuyongjiexuyongjiefdsgsdf";
+            //var result = myKmp.GetAllMatchesIndex(text);
+            //foreach(var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            LeetCode5 lc = new LeetCode5();
+            Console.WriteLine(lc.LongestPalindrome2("aadfgagawertrewq"));
             Console.ReadLine();
         }
     }
