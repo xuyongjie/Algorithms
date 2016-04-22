@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HDOJ\HDOJ2602.cs" />
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />
     <Compile Include="LeetCode\LeetCode121.cs" />

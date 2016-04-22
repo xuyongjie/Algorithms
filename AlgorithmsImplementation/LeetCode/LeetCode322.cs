@@ -10,7 +10,7 @@ namespace AlgorithmsImplementation.LeetCode
     {
         public int CoinChange(int[] coins, int amount)
         {
-
+            return 0;
         }
     }
 }
