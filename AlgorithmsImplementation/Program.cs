@@ -12,10 +12,10 @@ namespace AlgorithmsImplementation
     {
         static void Main(string[] args)
         {
-            LeetCode322 lc = new LeetCode322();
-            int[] coins = { 1};
-            int amount = 3;
-            Console.WriteLine(lc.CoinChange(coins, amount));
+            LeetCode321 lc = new LeetCode321();
+            int[] nums1 = { 6,7 };
+            int[] nums2 = {6,0,4 };
+            lc.MaxNumber(nums1, nums2, 5);
             Console.ReadLine();
         }
     }
