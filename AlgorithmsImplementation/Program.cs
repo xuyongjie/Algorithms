@@ -12,10 +12,8 @@ namespace AlgorithmsImplementation
     {
         static void Main(string[] args)
         {
-            LeetCode321 lc = new LeetCode321();
-            int[] nums1 = { 6,7 };
-            int[] nums2 = {6,0,4 };
-            lc.MaxNumber(nums1, nums2, 5);
+            LeetCode388 lt = new LeetCode388();
+            Console.WriteLine(lt.LengthLongestPath("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"));
             Console.ReadLine();
         }
     }

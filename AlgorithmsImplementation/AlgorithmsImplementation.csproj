@@ -58,6 +58,7 @@
     <Compile Include="LeetCode\LeetCode338.cs" />
     <Compile Include="LeetCode\LeetCode342.cs" />
     <Compile Include="LeetCode\LeetCode343.cs" />
+    <Compile Include="LeetCode\LeetCode388.cs" />
     <Compile Include="LeetCode\LeetCode4.cs" />
     <Compile Include="LeetCode\LeetCode5.cs" />
     <Compile Include="LeetCode\LeetCode6.cs" />
