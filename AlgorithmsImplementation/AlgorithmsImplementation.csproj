@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\AdjacencyList.cs" />
+    <Compile Include="Common\BFS.cs" />
+    <Compile Include="Common\BFSTest.cs" />
+    <Compile Include="Common\ForBFSE.cs" />
+    <Compile Include="Common\ForBFSV.cs" />
     <Compile Include="HDOJ\HDOJ2602.cs" />
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />
@@ -62,6 +67,7 @@
     <Compile Include="LeetCode\LeetCode4.cs" />
     <Compile Include="LeetCode\LeetCode412.cs" />
     <Compile Include="LeetCode\LeetCode442.cs" />
+    <Compile Include="LeetCode\LeetCode45.cs" />
     <Compile Include="LeetCode\LeetCode5.cs" />
     <Compile Include="LeetCode\LeetCode6.cs" />
     <Compile Include="Program.cs" />
@@ -70,9 +76,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
