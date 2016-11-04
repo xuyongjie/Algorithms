@@ -43,11 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\AdjacencyList.cs" />
-    <Compile Include="Common\BFS.cs" />
-    <Compile Include="Common\BFSTest.cs" />
-    <Compile Include="Common\ForBFSE.cs" />
-    <Compile Include="Common\ForBFSV.cs" />
+    <Compile Include="Common\Map\Base\AdjacencyList.cs" />
+    <Compile Include="Common\Map\BFS.cs" />
+    <Compile Include="Common\Map\BFSTest.cs" />
+    <Compile Include="Common\Map\Base\Edge.cs" />
+    <Compile Include="Common\Map\ForBFSNode.cs" />
+    <Compile Include="Common\Map\Base\Node.cs" />
     <Compile Include="HDOJ\HDOJ2602.cs" />
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />

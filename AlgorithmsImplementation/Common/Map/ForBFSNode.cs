@@ -4,27 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgorithmsImplementation.Common
+namespace AlgorithmsImplementation.Common.Map
 {
-    class ForBFSE<DataType>
+    class ForBFSENode<T>:Node<T>
     {
-        public ForBFSE()
+        public ForBFSENode()
         {
             Parent = null;
             Color = NodeColor.WHITE;
         }
-        public ForBFSE<DataType> Parent { get; set; }
+        public ForBFSENode<T> Parent { get; set; }
         public NodeColor Color { get; set; }
-
-        public ForBFSV<DataType> Data
-        {
-            get;set;
-        }
-
-        public ForBFSE<DataType> Next
-        {
-            get;set;
-        }
     }
 
     public enum NodeColor
