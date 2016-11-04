@@ -46,9 +46,13 @@
     <Compile Include="Common\Map\Base\AdjacencyList.cs" />
     <Compile Include="Common\Map\Base\Edge.cs" />
     <Compile Include="Common\Map\Base\Node.cs" />
-    <Compile Include="Common\Map\BFS.cs" />
-    <Compile Include="Common\Map\BFSTest.cs" />
-    <Compile Include="Common\Map\ForBFSNode.cs" />
+    <Compile Include="Common\Map\Base\NodeColor.cs" />
+    <Compile Include="Common\Map\BFS\BFS.cs" />
+    <Compile Include="Common\Map\BFS\BFSTest.cs" />
+    <Compile Include="Common\Map\BFS\ForBFSNode.cs" />
+    <Compile Include="Common\Map\DFS\DFS.cs" />
+    <Compile Include="Common\Map\DFS\DFSTest.cs" />
+    <Compile Include="Common\Map\DFS\ForDFSNode.cs" />
     <Compile Include="HDOJ\HDOJ2602.cs" />
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />

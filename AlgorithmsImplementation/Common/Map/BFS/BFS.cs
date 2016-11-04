@@ -1,10 +1,11 @@
-﻿using System;
+﻿using AlgorithmsImplementation.Common.Map.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgorithmsImplementation.Common.Map
+namespace AlgorithmsImplementation.Common.Map.BFS
 {
     class BFS<DataType>
     {
@@ -14,19 +15,19 @@ namespace AlgorithmsImplementation.Common.Map
             _list = list;
         }
 
-        public void DoSearch(ForBFSENode<DataType> start)
+        public void DoSearch(ForBFSNode<DataType> start)
         {
-            Queue<ForBFSENode<DataType>> queue = new Queue<ForBFSENode<DataType>>();
+            Queue<ForBFSNode<DataType>> queue = new Queue<ForBFSNode<DataType>>();
             start.Color = NodeColor.GRAY;
             start.Parent = null;
             queue.Enqueue(start);
             while(queue.Count>0)
             {
-                ForBFSENode<DataType> item = queue.Dequeue();
+                ForBFSNode<DataType> item = queue.Dequeue();
                 Console.WriteLine("node {0},parent is {1}",item.Data,item.Parent==null?"null": item.Parent.Data.ToString());
                 foreach(var each in _list.NeighborsList[item])
                 {
-                    ForBFSENode<DataType> bfsNode = (ForBFSENode<DataType>)each;
+                    ForBFSNode<DataType> bfsNode = (ForBFSNode<DataType>)each;
                     if(bfsNode.Color==NodeColor.WHITE)
                     {
                         bfsNode.Color = NodeColor.GRAY;
