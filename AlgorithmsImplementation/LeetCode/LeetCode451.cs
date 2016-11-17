@@ -17,6 +17,17 @@ public class LeetCode451 {
                 dic.Add(c,1);
             }
         }
-        dic.Sort();
+        var sorted=dic.OrderByDescending(v => v.Value);
+        StringBuilder builder = new StringBuilder();
+        foreach(var item in sorted)
+        {
+            int val = item.Value;
+            while(val>0)
+            {
+                builder.Append(item.Key);
+                val--;
+            }
+        }
+        return builder.ToString();
     }
 }
