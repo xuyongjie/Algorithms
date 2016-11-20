@@ -56,6 +56,8 @@
     <Compile Include="HDOJ\HDOJ2602.cs" />
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />
+    <Compile Include="LeetCode\LeetCode112.cs" />
+    <Compile Include="LeetCode\LeetCode113.cs" />
     <Compile Include="LeetCode\LeetCode121.cs" />
     <Compile Include="LeetCode\LeetCode123.cs" />
     <Compile Include="LeetCode\LeetCode125.cs" />
