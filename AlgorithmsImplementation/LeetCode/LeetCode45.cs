@@ -12,7 +12,10 @@ namespace AlgorithmsImplementation.LeetCode
         public int Step{get;set;}
         public int Color{get;set;}//0 white,1 gray,2 black
     }
-
+    /// <summary>
+    /// BFS广度优先搜索，超时，投机取巧，for循环从后往前并达到最后一个立马返回可以AC
+    /// 有待寻找更好方式解决此问题
+    /// </summary>
     class LeetCode45
     {
         public int Jump(int[] nums) {
@@ -34,12 +37,16 @@ namespace AlgorithmsImplementation.LeetCode
             while (queue.Count>0)
             {
                 Node cur=queue.Dequeue();
-                for(int i=cur.Index+1;i<cur.Index+cur.Data;i++)
+                for(int i=cur.Index+1;i<=cur.Index+cur.Data&&i<length;i++)
                 {
                     if(nodes[i].Color==0)
                     {
                         nodes[i].Step=cur.Step+1;
                         nodes[i].Color=1;
+                        if(i==length-1)//发现最后一个节点，直接返回step
+                        {
+                            return nodes[i].Step;
+                        }
                         queue.Enqueue(nodes[i]);
                     }
                 }
