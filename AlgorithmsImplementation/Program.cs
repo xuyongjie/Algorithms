@@ -1,9 +1,6 @@
-﻿using AlgorithmsImplementation.LeetCode;
+using AlgorithmsImplementation.Common.Map.BFS;
+using AlgorithmsImplementation.Common.Map.DFS;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgorithmsImplementation
 {
@@ -11,25 +8,17 @@ namespace AlgorithmsImplementation
     {
         static void Main(string[] args)
         {
-            //Solution solution = new Solution();
-            //int[] nums = new int[4] { 11, 15, 2, 7 };
-            //int[] result=solution.TwoSum(nums, 9);
-            //foreach(var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            LeetCode2 solution = new LeetCode2();
-            ListNode node1 = new ListNode(9);
-            node1.next = new ListNode(8);
-            node1.next.next = null;
-            ListNode node2 = new ListNode(1);
-            node2.next = null;
-            ListNode result=solution.AddTwoNumbers(node1, node2);
-            while(result!=null)
-            {
-                Console.Write(result.val);
-                result = result.next;
-            }
+            //LeetCode388 lt = new LeetCode388();
+            //Console.WriteLine(lt.LengthLongestPath("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"));
+            //LeetCode55 lt = new LeetCode55();
+            //Console.WriteLine(lt.CanJump2(new int[] { 3, 0, 8, 2, 0, 0, 1}));
+            //Console.WriteLine(lt.CanJump(new int[] { 3, 2, 1, 0, 4 }));
+            Console.WriteLine("This is BFS");
+            BFSTest test = new BFSTest();
+            test.DoBFS();
+            Console.WriteLine("\n\nThis is DFS");
+            DFSTest dfs = new DFSTest();
+            dfs.DoDFS();
             Console.ReadLine();
         }
     }

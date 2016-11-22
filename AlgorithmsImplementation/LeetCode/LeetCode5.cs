@@ -8,61 +8,120 @@ namespace AlgorithmsImplementation.LeetCode
 {
     class LeetCode5
     {
+        //O(N^2)
         public string LongestPalindrome(string s)
         {
-
             if (string.IsNullOrEmpty(s))
             {
                 return string.Empty;
             }
-            int max = 1;
-            int resultIndex = 0;
-            int former = 1;
-            int i, j,start,end;
-            for (i = 1; i < s.Length; i++)
+            int length = s.Length;
+            int maxStart = 0, maxLength = 1;
+            bool[,] p = new bool[length, length];
+            for (int i = 0; i < length; i++)
             {
-
-                if (i-former-1>=0&&s[i] == s[i - former - 1])
+                for (int j = i; j < length; j++)
                 {
-                    former = former+2;
-                }
-                else
-                {
-                    for(j=i-former;j<i;j++)
+                    if (i == j)
                     {
-                        if(s[j]==s[i])
-                        {
-                            start = j + 1;
-                            end = i - 1;
-                            while(start<end-1)
-                            {
-                                if(s[start]!=s[j])
-                                {
-                                    break;
-                                }
-                            }
-
-                            if(start>=end-1)
-                            {
-                                former = i - j+1;
-                                break;
-                            }
-                        }
+                        p[i, j] = true;
                     }
-
-                    if(j==i)
+                    else if (i == j - 1 && s[i] == s[j])
                     {
-                        former = 1;
+                        p[i, j] = true;
+                        maxStart = i;
+                        maxLength = 2;
                     }
-                }
-
-                if (former > max)
-                {
-                    max = former;
-                    resultIndex = i;
+                    else
+                    {
+                        p[i, j] = false;
+                    }
                 }
             }
-            return s.Substring(resultIndex - max+1, max);
+
+            for (int i = 3; i <= length; i++)
+            {
+                for (int j = 0; j <= length - i; j++)
+                {
+                    if (p[j + 1, j + i - 2] && s[j] == s[j + i - 1])
+                    {
+                        p[j, j + i - 1] = true;
+                        maxStart = j;
+                        maxLength = i;
+                    }
+                    else
+                    {
+                        p[j, j + i - 1] = false;
+                    }
+                }
+            }
+
+            return s.Substring(maxStart, maxLength);
+        }
+
+
+
+
+        //O(N)
+        public string LongestPalindrome2(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            string afterHandle = HandleText(s, '#');
+            int length = afterHandle.Length;
+            int[] rad = new int[length];
+            int center = -1;
+            int right = -1;
+            for (int i = 0; i < length; i++)
+            {
+                int r = 1;
+                if (i <= right)
+                {
+                    r = Math.Min(rad[2 * center - i], rad[center] - i + center);
+
+                }
+                while (i-r>=0&&i+r<length&&afterHandle[i-r] == afterHandle[i+r])
+                {
+                    r++;
+                }
+                rad[i] = r;
+                if(i+r-1>right)
+                {
+                    right = i + r-1;
+                    center = i;
+                }
+            }
+            int maxIndex = 0, maxRad = 1;
+            for(int i=0;i<length;i++)
+            {
+                if(rad[i]>maxRad)
+                {
+                    maxRad = rad[i];
+                    maxIndex = i;
+                }
+            }
+            int resultMaxLength = maxRad - 1;
+            int resultStartIndex = (maxIndex - maxRad + 1) / 2;
+            return s.Substring(resultStartIndex, resultMaxLength);
+        }
+
+        /// <summary>
+        /// 在字符串s中插入字符c
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        private string HandleText(string s, char c)
+        {
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < s.Length; i++)
+            {
+                builder.Append('#').Append(s[i]);
+            }
+            builder.Append('#');
+            return builder.ToString();
         }
     }
 }

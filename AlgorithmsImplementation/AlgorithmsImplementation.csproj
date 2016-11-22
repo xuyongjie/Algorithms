@@ -43,12 +43,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Map\Base\AdjacencyList.cs" />
+    <Compile Include="Common\Map\Base\Edge.cs" />
+    <Compile Include="Common\Map\Base\Node.cs" />
+    <Compile Include="Common\Map\Base\NodeColor.cs" />
+    <Compile Include="Common\Map\BFS\BFS.cs" />
+    <Compile Include="Common\Map\BFS\BFSTest.cs" />
+    <Compile Include="Common\Map\BFS\ForBFSNode.cs" />
+    <Compile Include="Common\Map\DFS\DFS.cs" />
+    <Compile Include="Common\Map\DFS\DFSTest.cs" />
+    <Compile Include="Common\Map\DFS\ForDFSNode.cs" />
+    <Compile Include="HDOJ\HDOJ2602.cs" />
     <Compile Include="KMP.cs" />
     <Compile Include="LeetCode\LeetCode1.cs" />
+    <Compile Include="LeetCode\LeetCode112.cs" />
+    <Compile Include="LeetCode\LeetCode113.cs" />
+    <Compile Include="LeetCode\LeetCode121.cs" />
+    <Compile Include="LeetCode\LeetCode123.cs" />
+    <Compile Include="LeetCode\LeetCode125.cs" />
+    <Compile Include="LeetCode\LeetCode188.cs" />
     <Compile Include="LeetCode\LeetCode2.cs" />
     <Compile Include="LeetCode\LeetCode3.cs" />
+    <Compile Include="LeetCode\LeetCode309.cs" />
+    <Compile Include="LeetCode\LeetCode321.cs" />
+    <Compile Include="LeetCode\LeetCode322.cs" />
+    <Compile Include="LeetCode\LeetCode338.cs" />
+    <Compile Include="LeetCode\LeetCode342.cs" />
+    <Compile Include="LeetCode\LeetCode343.cs" />
+    <Compile Include="LeetCode\LeetCode388.cs" />
     <Compile Include="LeetCode\LeetCode4.cs" />
+    <Compile Include="LeetCode\LeetCode412.cs" />
+    <Compile Include="LeetCode\LeetCode442.cs" />
+    <Compile Include="LeetCode\LeetCode45.cs" />
+    <Compile Include="LeetCode\LeetCode463.cs" />
+    <Compile Include="LeetCode\LeetCode464.cs" />
     <Compile Include="LeetCode\LeetCode5.cs" />
+    <Compile Include="LeetCode\LeetCode55.cs" />
     <Compile Include="LeetCode\LeetCode6.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,9 +86,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
