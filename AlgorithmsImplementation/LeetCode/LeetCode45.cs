@@ -26,7 +26,6 @@ namespace AlgorithmsImplementation.LeetCode
                 nodes[i].Step=0;
                 nodes[i].Color=0;
             }
-
             Node start=nodes[0];
             start.Color=1;
             start.Step=0;
@@ -47,6 +46,6 @@ namespace AlgorithmsImplementation.LeetCode
                 cur.Color=2;
             }
             return nodes[length-1].Step;
-    }
+        }
     }
 }
