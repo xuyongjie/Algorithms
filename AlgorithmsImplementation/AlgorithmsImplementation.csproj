@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\BinaryTree\BinaryTree.cs" />
     <Compile Include="Common\Map\Base\AdjacencyList.cs" />
     <Compile Include="Common\Map\Base\Edge.cs" />
     <Compile Include="Common\Map\Base\Node.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="LeetCode\LeetCode121.cs" />
     <Compile Include="LeetCode\LeetCode123.cs" />
     <Compile Include="LeetCode\LeetCode125.cs" />
+    <Compile Include="LeetCode\LeetCode145.cs" />
     <Compile Include="LeetCode\LeetCode188.cs" />
     <Compile Include="LeetCode\LeetCode2.cs" />
     <Compile Include="LeetCode\LeetCode3.cs" />
@@ -70,11 +72,13 @@
     <Compile Include="LeetCode\LeetCode338.cs" />
     <Compile Include="LeetCode\LeetCode342.cs" />
     <Compile Include="LeetCode\LeetCode343.cs" />
+    <Compile Include="LeetCode\LeetCode345.cs" />
     <Compile Include="LeetCode\LeetCode388.cs" />
     <Compile Include="LeetCode\LeetCode4.cs" />
     <Compile Include="LeetCode\LeetCode412.cs" />
     <Compile Include="LeetCode\LeetCode442.cs" />
     <Compile Include="LeetCode\LeetCode45.cs" />
+    <Compile Include="LeetCode\LeetCode453.cs" />
     <Compile Include="LeetCode\LeetCode463.cs" />
     <Compile Include="LeetCode\LeetCode464.cs" />
     <Compile Include="LeetCode\LeetCode5.cs" />
