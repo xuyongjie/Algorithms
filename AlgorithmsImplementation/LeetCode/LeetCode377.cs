@@ -8,34 +8,21 @@ namespace AlgorithmsImplementation.LeetCode
 {
     class LeetCode377
     {
-        private int[] sorted;
-        private int solutions;
-        public int CombinationSum4(int[] nums, int target)
+        //dp[target]=dp[target-nums[i]](i=0->nums.Length-1)
+    public int CombinationSum4(int[] nums, int target) {
+        int[] dp=new int[target+1];
+        dp[0]=1;
+        for(int i=1;i<=target;i++)
         {
-            sorted = nums;
-            solutions = 0;
-            DFS(target);
-            return solutions;
-        }
-
-        private void DFS(int target)
-        {
-            if (target == 0)
+            for(int j=0;j<nums.Length;j++)
             {
-                solutions++;
-                return;
-            }
-            else if (target < 0)
-            {
-                return;
-            }
-            else
-            {
-                for (int i = 0; i < sorted.Length; i++)
+                if(i-nums[j]>=0)
                 {
-                    DFS(target - sorted[i]);
+                dp[i]+=dp[i-nums[j]];                    
                 }
             }
         }
+        return dp[target];
+    }
     }
 }
